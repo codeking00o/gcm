@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Green Stay Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #2c6e49;
+      }
+
+      a {
+        text-decoration: none;
+        color: #2c6e49;
+      }
+
+      a:hover {
+        color: #ffd700;
+      }
+
+      /* Login Section */
+      .login-section {
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .login-section h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .login-section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #666;
+      }
+
+      /* Login Form */
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .login-form label {
+        font-size: 14px;
+        color: #2c6e49;
+        text-align: left;
+      }
+
+      .login-form input {
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .login-form input:focus {
+        border-color: #2c6e49;
+        outline: none;
+      }
+
+      .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .remember-me input {
+        width: auto;
+      }
+
+      .login-form button {
+        background: #2c6e49;
+        color: #fff;
+        padding: 14px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .login-form button:hover {
+        background: #4c956c;
+      }
+
+      /* Forgot Password Link */
+      .forgot-password {
+        font-size: 14px;
+        color: #2c6e49;
+        text-decoration: none;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+
+      /* Social Login Buttons */
+      .social-login {
+        margin-top: 20px;
+      }
+
+      .social-login p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .social-login button {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background 0.3s;
+      }
+
+      .google-login {
+        background: #db4437;
+        color: #fff;
+      }
+
+      .google-login:hover {
+        background: #c1351d;
+      }
+
+      .facebook-login {
+        background: #4267b2;
+        color: #fff;
+      }
+
+      .facebook-login:hover {
+        background: #365899;
+      }
+
+      /* Sign Up Link */
+      .signup-link {
+        font-size: 14px;
+        color: #666;
+        margin-top: 20px;
+      }
+
+      .signup-link a {
+        color: #2c6e49;
+        font-weight: bold;
+      }
+
+      .signup-link a:hover {
+        color: #ffd700;
+      }
+
+      /* Privacy Note */
+      .privacy-note {
+        font-size: 12px;
+        color: #777;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Login Section -->
+    <section class="login-section">
+      <h1>Welcome Back to Green Stay Finder!</h1>
+      <p>
+        Please log in to your account to explore eco-friendly stays, manage your
+        bookings, and more.
+      </p>
+
+      <!-- Login Form -->
+      <form action="login_submit.php" method="POST" class="login-form">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Enter your password"
+        />
+
+        <div class="remember-me">
+          <input type="checkbox" id="remember" name="remember" />
+          <label for="remember">Remember Me</label>
+        </div>
+
+        <button type="submit" class="login-button">Log In</button>
+
+        <a href="/forgot-password" class="forgot-password"
+          >Forgot your password? Reset it here</a
+        >
+      </form>
+
+      <!-- Privacy Note -->
+      <p class="privacy-note">
+        We value your privacy. Your information is safe with us.
+      </p>
+    </section>
+
+    <!-- JavaScript for Form Submission Feedback and Redirection -->
+    <script>
+     document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevents form from submitting the traditional way
+  
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const responseMessage = document.getElementById("responseMessage");
+  
+    // Basic form validation
+    if (name && email && message) {
+        // Mock a successful submission
+        responseMessage.textContent = "Thank you for reaching out! We will get back to you soon.";
+    } else {
+        responseMessage.textContent = "Please fill out all fields.";
+    }
+  });
+  
+  document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevents form from submitting the traditional way
+  
+  const form = document.getElementById("contactForm");
+  const responseMessage = document.getElementById("responseMessage");
+  
+  // Send email with EmailJS
+  emailjs.sendForm("service_8ww8b2n", "template_zgzlht9", form, "Cc7BpI-iZig7Q1scs")
+      .then(
+          (result) => {
+              console.log("Email sent:", result.text);
+              responseMessage.textContent = "Thank you! Your message has been sent.";
+              form.reset(); // Reset form fields
+          },
+          (error) => {
+              console.log("Failed to send email:", error.text);
+              responseMessage.textContent = "Sorry, there was an error sending your message. Please try again.";
+          }
+      );
+  });
+  
+  
+  
+    </script>
+  </body>
+</html>

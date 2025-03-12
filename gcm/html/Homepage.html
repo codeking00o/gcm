@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Green Stay Finder - Find Sustainable Accommodations"
+    />
+    <meta
+      name="keywords"
+      content="eco-friendly, sustainable, green travel, accommodations"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Stay Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      /* Header Section */
+      .header {
+        background: #2c6e49;
+        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .logo a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-links ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links ul li {
+        margin-left: 20px;
+      }
+
+      .nav-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+
+      .nav-links ul li a:hover {
+        color: #ffd700;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(to right, #2c6e49, #4c956c);
+        color: #fff;
+        padding: 150px 0 100px; /* Adjusted padding to account for fixed navbar */
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+
+      .hero .btn {
+        background: #ffd700;
+        color: #2c6e49;
+        padding: 10px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background 0.3s;
+      }
+
+      .hero .btn:hover {
+        background: #e6b800;
+      }
+
+      /* Featured Stays Section */
+      .featured-stays {
+        padding: 80px 0;
+        background: #fff;
+      }
+
+      .featured-stays h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 60px;
+        color: #2c6e49;
+      }
+
+      .stay-card {
+        flex-basis: 30%;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .stay-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .stay-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .stay-card h3 {
+        font-size: 24px;
+        margin: 20px 0 10px;
+        color: #2c6e49;
+      }
+
+      .stay-card p {
+        font-size: 16px;
+        color: #666;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        background: #f4f4f4;
+        padding: 80px 0;
+      }
+
+      .testimonials h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 60px;
+        color: #2c6e49;
+      }
+
+      .testimonial-card {
+        flex-basis: 30%;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .testimonial-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-card p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-card h3 {
+        font-size: 20px;
+        color: #2c6e49;
+      }
+
+      /* Footer Section */
+      .footer {
+        background: #2c6e49;
+        color: #fff;
+        padding: 40px 0 20px;
+        font-family: "Arial", sans-serif;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+      }
+
+      .footer-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ffd700;
+      }
+
+      .footer-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #f4f4f4;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-section ul li a {
+        color: #f4f4f4;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-section ul li a:hover {
+        color: #ffd700;
+      }
+
+      .footer-section.contact p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .footer-section.contact i {
+        color: #ffd700;
+        font-size: 18px;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        color: #f4f4f4;
+        font-size: 20px;
+        margin-right: 15px;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #ffd700;
+      }
+
+      .footer-copyright {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #4c956c;
+        font-size: 14px;
+        color: #f4f4f4;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links ul {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .nav-links ul li {
+          margin-left: 0;
+        }
+
+        .hero {
+          padding: 180px 0 100px; /* Adjusted padding for mobile */
+        }
+
+        .stay-card,
+        .testimonial-card {
+          flex-basis: 100%;
+          margin-bottom: 20px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section {
+          margin-bottom: 30px;
+        }
+
+        .footer-section.contact p {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="navbar">
+        <div class="logo">
+          <a href="../html/Homepage.html">Green Stay Finder</a>
+        </div>
+        <nav class="nav-links">
+          <ul>
+            <li><a href="../html/AboutUs.html">About Us</a></li>
+            <li><a href="../html/Hotellisting.html">Hotel Listing </a></li>
+            <li><a href="../html/ContactUs.html">Contact Us</a></li>
+            <li><a href="../html/Login.html">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Find Your Perfect Eco-Friendly Stay</h1>
+      <p>Discover sustainable accommodations that care for the planet.</p>
+      <a href="../html/Hotellisting.html" class="btn">Explore Stays</a>
+    </div>
+
+    <!-- Featured Stays Section -->
+    <div class="featured-stays">
+      <h2>Featured Stays</h2>
+      <div class="row">
+        <div class="stay-card">
+          <img src="../Image/Hotel/hotel1.jpeg" alt="Eco Lodge" />
+          <h3>Eco Lodge</h3>
+          <p>Experience nature in its purest form at our eco-friendly lodge.</p>
+        </div>
+        <div class="stay-card">
+          <img src="../Image/Hotel/hotel2.jpg" alt="Green Retreat" />
+          <h3>Green Retreat</h3>
+          <p>Relax in a sustainable retreat surrounded by lush greenery.</p>
+        </div>
+        <div class="stay-card">
+          <img src="../Image/Hotel/hotel3.jpg" alt="Solar Cabin" />
+          <h3>Solar Cabin</h3>
+          <p>Stay in a solar-powered cabin with modern amenities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+      <h2>What Our Guests Say</h2>
+      <div class="row">
+        <div class="testimonial-card">
+          <img src="../Image/Hotel/member1.jpg" alt="Guest 1" />
+          <p>
+            "An amazing experience! The stay was eco-friendly and comfortable."
+          </p>
+          <h3>John Doe</h3>
+        </div>
+        <div class="testimonial-card">
+          <img src="../Image/Hotel/member1.jpg" alt="Guest 2" />
+          <p>"Loved the sustainable practices and beautiful surroundings."</p>
+          <h3>Jane Smith</h3>
+        </div>
+        <div class="testimonial-card">
+          <img src="../Image/Hotel/member1.jpg" alt="Guest 3" />
+          <p>
+            "Highly recommend Green Stay Finder for eco-conscious travelers!"
+          </p>
+          <h3>Michael Brown</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-content">
+        <!-- About Us Section -->
+        <div class="footer-section about">
+          <h2>About Us</h2>
+          <p>
+            Green Stay Finder is dedicated to connecting travelers with
+            eco-friendly accommodations worldwide. We believe in sustainable
+            travel that benefits both people and the planet.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Stays</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="footer-section contact">
+          <h2>Contact Us</h2>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Green Street, Eco City,
+            Earth
+          </p>
+          <p><i class="fas fa-phone"></i> +123 456 7890</p>
+          <p><i class="fas fa-envelope"></i> info@greenstayfinder.com</p>
+        </div>
+      </div>
+
+      <!-- Footer Copyright -->
+      <div class="footer-copyright">
+        &copy; 2023 Green Stay Finder. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>
